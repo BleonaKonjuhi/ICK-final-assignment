@@ -84,5 +84,49 @@ footer div  {
 .footer3 img {
   padding-right: 5px;
 }
- 
-  
+.center h1 {
+  font-size: 80px;
+}
+table {
+  margin-left: 400px;
+  margin-bottom: -200px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 7px;
+} 
+
+.loader {
+  border: 12px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 12px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  text-align: center;
+  position: relative;
+  margin-left: 720px;
+  margin-top: 300px;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+form {
+  margin-left: 550px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
