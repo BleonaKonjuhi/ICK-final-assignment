@@ -18,7 +18,7 @@ body {
   text-align: center;
   padding: 10px;
   padding-bottom: 5px !important;
-  margin-right: 30px;
+  margin-right: 50px;
   text-decoration: none;
   font-size: 18px; 
   line-height: 25px;
@@ -28,6 +28,7 @@ body {
 .header a.logo {
   font-size: 25px;
   font-weight: bold;
+  margin-left: 50px;
 }
 
 .header a:hover {
@@ -54,7 +55,7 @@ footer div  {
     float: left;
     color: black;
     text-align: center;
-    padding-right: 250px;
+    padding-right: 280px;
     
     /* margin-right: 30px; */
     text-decoration: none;
@@ -66,6 +67,7 @@ footer div  {
       margin-left: 100px;
       /* padding-right: 25px !important; */
   }
+  
   .footer2{
     margin-left: 20px;
     /* padding-right: 25px !important; */
