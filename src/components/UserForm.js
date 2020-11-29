@@ -4,32 +4,34 @@ class UserForm extends React.Component {
     render() {
         return (
             <form onSubmit={this.props.handleSubmit}>
-                <h2>Create new user</h2>
+                <h2>Create new User</h2>
                 <div>
-                    <label htmlFor="name">First Name: </label>
-                    <input
+                    <label htmlFor="title">Title</label>
+                    <input 
                         type="text"
-                        id="name"
-                        name="name"
-                        value={this.props.form.name}
+                        id="title"
+                        name="title"
+                        value={this.props.form.title}
                         onChange={this.props.handleChange}
-                        placeholder="John Smith"
-                        required
+                    />
+                    
+                </div>
+                <div>
+                    <label htmlFor="content">Content</label>
+                    <textarea
+                        name="content" 
+                        id="content"
+                        value={this.props.form.content}
+                        onChange={this.props.handleChange}
                     />
                 </div>
-               
-               
-               
                 <div>
-                    <label htmlFor="textarea">TextArea</label>
-                    <textarea id="textarea" name="textarea" value={this.props.form.textarea} 
-                    onChange={this.props.handleChange} rows="4" cols="50">
-
-                    </textarea>
+                    <button  type="submit">Submit</button>
                 </div>
-                <button type="submit">Submit</button>
             </form>
         );
+
+
     }
 }
 

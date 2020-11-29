@@ -11,8 +11,9 @@ class Home extends React.Component {
             isLoading: true,
             form: {
                 name: '',
-                textarea: '',
-                
+                email: '',
+                phone: '',
+                website: ''
             }
         }
         this.handleChange = this.handleChange.bind(this);
@@ -63,14 +64,14 @@ class Home extends React.Component {
         this.setState(prevState => {
             return {
                 users: [
-                    ...prevState.users,
-                    prevState.form
-                    
+                    prevState.form,
+                    ...prevState.users
                 ],
                 form: {
                     name: '',
-                    textarea: ''
-                    
+                    email: '',
+                    phone: '',
+                    website: ''
                 }
             };
         });
@@ -78,7 +79,7 @@ class Home extends React.Component {
     
     render() {
         if (this.state.isLoading) {
-            return <div class="loader"></div>
+            return <h1>Loading...</h1>
         }
 
         return (

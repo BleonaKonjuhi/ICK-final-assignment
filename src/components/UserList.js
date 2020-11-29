@@ -7,7 +7,8 @@ class UserList extends React.Component {
                 <tr key={i}>
                     <td>{e.name}</td>
                     <td>{e.email}</td>
-                    
+                    <td>{e.phone}</td>
+                    <td>{e.website}</td>
                 </tr>
             );
         })
@@ -20,7 +21,8 @@ class UserList extends React.Component {
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            
+                            <th>Phone</th>
+                            <th>Website</th>
                         </tr>
                     </thead>
                     <tbody>
