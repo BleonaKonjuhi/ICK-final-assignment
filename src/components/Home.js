@@ -6,12 +6,16 @@ class Home extends Component {
   constructor() {
     super();
 
+   
     this.state = {
+      
       title: '',
       content: '',
-      items: []
+      items: [],
+     
+
     }
-  };
+  }; 
 
   handleFormSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +24,7 @@ class Home extends Component {
             return;
         }
         if (!this.state.content || this.state.content.length < 10) {
-          alert('Field should not be empty or has less than 2 characters.')
+          alert('Field should not be empty or has less than 10 characters.')
           return;
       }
 
@@ -30,13 +34,15 @@ class Home extends Component {
 
     items.push({
       title: this.state.title,
-      content: this.state.content
+      content: this.state.content,
+      
     });
 
     this.setState({
       items,
       title: '',
-      content: ''
+      content: '',
+      
     });
   };
 
@@ -57,7 +63,8 @@ class Home extends Component {
         <Form handleFormSubmit={ this.handleFormSubmit } 
           handleInputChange={ this.handleInputChange }
           newTitle={ this.state.title }
-          newContent={ this.state.content } />
+          newContent={ this.state.content }
+           />
       </div>
     );
   }

@@ -22,7 +22,7 @@ class Form extends React.Component {
           
           </div>
           <div>
-          <button type="submit" value="Submit">Add Item</button>
+          <button id="addItem" type="submit" value="Submit">Add Item</button>
           </div>
         </form>
       

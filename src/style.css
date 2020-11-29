@@ -8,13 +8,13 @@ body {
 
 .header {
   overflow: hidden;
-  background: linear-gradient(to bottom, #666699 0%, #999966 92%);
+  background: #285FBA;
   padding: 20px 10px;
 }
 
 .header a {
   float: left;
-  color: black;
+  color: white;
   text-align: center;
   padding: 10px;
   padding-bottom: 5px !important;
@@ -32,12 +32,12 @@ body {
 }
 
 .header a:hover {
-  background-color: #a3a375;
-  color: black;
+  background-color: #70A0F0;
+  color: White;
 }
 
 .header a.active {
-  background-color: #7575a3;
+  background-color: #70A0F0;
   color: white;
   padding: 12px;
 }
@@ -47,13 +47,13 @@ body {
 }
 footer {
     overflow: hidden;
-  background: linear-gradient(to bottom, #666699 0%, #999966 92%);
+  background: #285FBA;
   padding: 20px 10px;
   margin-top: 500px;
 }   
 footer div  {
     float: left;
-    color: black;
+    color: white;
     text-align: center;
     padding-right: 280px;
     
@@ -75,7 +75,7 @@ footer div  {
 .footer2 a {
   text-decoration: none;
   margin-left: -50px;
-  color:  black;
+  color:  white;
 }
 .footer3{
   margin-left: 10px;
@@ -101,19 +101,7 @@ td {
   padding: 7px;
 } 
 
-.loader {
-  border: 12px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 12px solid #3498db;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
-  text-align: center;
-  position: relative;
-  margin-left: 720px;
-  margin-top: 300px;
-}
+
 
 /* Safari */
 @-webkit-keyframes spin {
@@ -160,26 +148,40 @@ form {
 .inputTitle input{
   
   margin-left: 10px;
-  border: 2px solid #4CAF50;
+  border: 2px solid #285FBA;
 }
 .textareaContet{
   padding: 20px;
 }
 .textareaContet textarea{
   margin-left: -20px;
-  border: 2px solid #4CAF50;
+  border: 2px solid#285FBA;
 }
-button {
+#addItem {
   padding: 7px 40px 7px 40px;
-  border: solid #4CAF50;
-  background-color: #4CAF50 ;
+  border: solid #285FBA;
+  background-color: #285FBA ;
   color: white;
   border-radius: 10px;
   margin-left: 120px;
 }
-button:hover{
+#addItem:hover{
   background-color: white;
-  color: #4CAF50;
+  color: #285FBA;
+  
+}
+
+.edButton {
+  padding: 5px 15px 5px 15px;
+  border: solid #285FBA;
+  background-color: #285FBA ;
+  color: white;
+  border-radius: 10px;
+  
+}
+.edButton:hover{
+  background-color: white;
+  color: #285FBA;
   
 }
 
@@ -196,6 +198,6 @@ label {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #4CAF50;
+  background-color: #285FBA;
   color: white;
 }

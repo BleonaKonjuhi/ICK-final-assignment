@@ -3,21 +3,24 @@ import React, { Component } from 'react';
 class Table extends React.Component {
     constructor(props){
         super(props);
+        let today = new Date(),
+
+        date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + '  ' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+        
         this.state ={
             items: [
                 { title: "JavaScript", content: 'JavaScript is a language for websites' },
-                { title: "JavaScript", content: 'JavaScript is a language for websites' },
-                {title: "JavaScript", content: 'JavaScript is a language for websites' },
-                { title: "JavaScript", content: 'JavaScript is a language for websites' }
+                { title: "Python", content: 'Python is an awesome language' },
+                {title: "Php", content: 'Php is a dynamic language ' },
+                { title: "C#", content: 'C# is an old programming language ' }
              ],
+             currentDate: date
             
         };
-            // this.handleChange = this.handleChange.bind(this);
-            // this.renderTableData=this.renderTableData.bind(this);
-            // this.renderTableHeader=this.renderTableHeader.bind(this);
+            this.handleDeleteRow=this.handleDeleteRow.bind(this);
 
     }
-    
+   
     renderTableData() {
         return this.state.items.map((items, index) => {
            const { title, content } = items //destructuring
@@ -26,12 +29,20 @@ class Table extends React.Component {
                  
                  <td>{title}</td>
                  <td>{content}</td>
-                 <td><button>Delete </button></td>
-                 
+                 <td>{this.state.currentDate}</td>
+                 <td><button className="edButton" onClick={index => this.handleDeleteRow(index)}>Delete</button></td>
+                  <td><button className="edButton">Edit</button></td>
               </tr>
            )
         })
      }
+     handleDeleteRow(i) {
+        let items = [...this.state.items]
+        items.splice(i, 1)
+        this.setState({ 
+          items: items
+        })
+      }
    
   render() {
     const items = this.props.items;
@@ -43,21 +54,27 @@ class Table extends React.Component {
             <tr>
               <th>Title</th>
               <th>Content</th>
-              <th>Delete Row</th>
+              <th>Creation Date</th>
+              <th>Delete</th>
+              <th>Edit</th>
+
               
             </tr>
-            {/* <tr>{this.renderTableHeader()}</tr> */}
-                    {this.renderTableData()}
-            {items.map(item => {
+                {this.renderTableData()}
+            {
+            items.map((items, index) => {
               return (
-                <tr>
-                  <td>{item.title}</td>
-                  <td>{item.content}</td>
-                  <td><button >Delete </button></td>
+                <tr key={index}>
+                  <td>{items.title}</td>
+                  <td>{items.content}</td>
+                  <td>{this.state.currentDate}</td>
+                  <td><button className="edButton" onClick={index => this.handleDeleteRow(index)}>Delete</button></td>
+                  <td><button className="edButton">Edit</button></td>
                   
                 </tr>
               );
-            })}
+            })
+            }
           </tbody>
         </table>
       </div>
