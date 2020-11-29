@@ -17,6 +17,7 @@ class Table extends React.Component {
             // this.renderTableHeader=this.renderTableHeader.bind(this);
 
     }
+    
     renderTableData() {
         return this.state.items.map((items, index) => {
            const { title, content } = items //destructuring
@@ -25,17 +26,13 @@ class Table extends React.Component {
                  
                  <td>{title}</td>
                  <td>{content}</td>
+                 <td><button>Delete </button></td>
                  
               </tr>
            )
         })
      }
-    //  renderTableHeader() {
-    //     let header = Object.keys(this.state.items[0])
-    //     return header.map((key, index) => {
-    //        return <th key={index}>{key.toUpperCase()}</th>
-    //     })
-    //  }
+   
   render() {
     const items = this.props.items;
     return (
@@ -46,6 +43,7 @@ class Table extends React.Component {
             <tr>
               <th>Title</th>
               <th>Content</th>
+              <th>Delete Row</th>
               
             </tr>
             {/* <tr>{this.renderTableHeader()}</tr> */}
@@ -55,6 +53,8 @@ class Table extends React.Component {
                 <tr>
                   <td>{item.title}</td>
                   <td>{item.content}</td>
+                  <td><button >Delete </button></td>
+                  
                 </tr>
               );
             })}

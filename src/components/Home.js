@@ -15,7 +15,17 @@ class Home extends Component {
 
   handleFormSubmit = (e) => {
     e.preventDefault();
+     if (!this.state.title || this.state.title.length < 2) {
+            alert('Field should not be empty or has less than 2 characters.')
+            return;
+        }
+        if (!this.state.content || this.state.content.length < 10) {
+          alert('Field should not be empty or has less than 2 characters.')
+          return;
+      }
 
+
+        
     let items = [...this.state.items];
 
     items.push({
