@@ -1,20 +1,16 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class Table extends React.Component{
+class Table extends React.Component {
     constructor(props){
         super(props);
         this.state ={
-            users: [
+            items: [
                 { title: "JavaScript", content: 'JavaScript is a language for websites' },
-                { title: "JavaScript", content: 'JavaScript is a language for websites' },,
+                { title: "JavaScript", content: 'JavaScript is a language for websites' },
                 {title: "JavaScript", content: 'JavaScript is a language for websites' },
                 { title: "JavaScript", content: 'JavaScript is a language for websites' }
              ],
-            //isLoading:true,
-            form:{
-            title: '',
-            content: ''
-            }
+            
         };
             // this.handleChange = this.handleChange.bind(this);
             // this.renderTableData=this.renderTableData.bind(this);
@@ -22,8 +18,8 @@ class Table extends React.Component{
 
     }
     renderTableData() {
-        return this.state.users.map((users, index) => {
-           const { title, content } = users //destructuring
+        return this.state.items.map((items, index) => {
+           const { title, content } = items //destructuring
            return (
               <tr key={index}>
                  
@@ -34,24 +30,39 @@ class Table extends React.Component{
            )
         })
      }
-     renderTableHeader() {
-        let header = Object.keys(this.state.users[0])
-        return header.map((key, index) => {
-           return <th key={index}>{key.toUpperCase()}</th>
-        })
-     }
-     render() {
-        return (
-           <div>
-              <h1 id='title'>React Dynamic Table</h1>
-              <table id='students'>
-                 <tbody>
-                    <tr>{this.renderTableHeader()}</tr>
+    //  renderTableHeader() {
+    //     let header = Object.keys(this.state.items[0])
+    //     return header.map((key, index) => {
+    //        return <th key={index}>{key.toUpperCase()}</th>
+    //     })
+    //  }
+  render() {
+    const items = this.props.items;
+    return (
+      <div >
+          <h1 id='title'>User Table</h1>
+        <table id='table'>
+          <tbody>
+            <tr>
+              <th>Title</th>
+              <th>Content</th>
+              
+            </tr>
+            {/* <tr>{this.renderTableHeader()}</tr> */}
                     {this.renderTableData()}
-                 </tbody>
-              </table>
-           </div>
-        )
-     }
+            {items.map(item => {
+              return (
+                <tr>
+                  <td>{item.title}</td>
+                  <td>{item.content}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
 }
-export default Table
+
+export default Table;

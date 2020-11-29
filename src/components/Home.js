@@ -1,98 +1,56 @@
-import React from 'react';
-import axios from 'axios';
-import UserList from './UserList';
-import UserForm from './UserForm';
+import React, { Component } from 'react';
+import Table from './Table';
+import Form from './Form';
 
-class Home extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            users: [],
-            isLoading: true,
-            form: {
-                name: '',
-                email: '',
-                phone: '',
-                website: ''
-            }
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+class Home extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      title: '',
+      content: '',
+      items: []
     }
+  };
 
-    componentDidMount() {
-        // API Call
-        axios
-            .get('https://jsonplaceholder.typicode.com/users')
-            .then(res => {
-                this.setState({
-                    users: res.data,
-                    isLoading: false
-                });
-            })
-            .catch(e => {
-                this.setState({
-                    isLoading: false
-                });
-                alert('Could not fetch users.');
-            });
-    }
+  handleFormSubmit = (e) => {
+    e.preventDefault();
 
-    handleChange(event) {
-        const name = event.target.name;
+    let items = [...this.state.items];
 
-        this.setState(prevState => {
-            return {
-                form: {
-                    ...prevState.form,
-                    [name]: event.target.value
-                }
-            }
-        });
-    }
+    items.push({
+      title: this.state.title,
+      content: this.state.content
+    });
 
-    handleSubmit(event) {
-        event.preventDefault();
+    this.setState({
+      items,
+      title: '',
+      content: ''
+    });
+  };
 
-        // const { name, email, phone, website } = this.state.form;
+  handleInputChange = (e) => {
+    let input = e.target;
+    let name = e.target.name;
+    let value = input.value;
 
-        // if (!name || !email || !phone || !website) {
-        //     alert('Form invalid.')
-        //     return;
-        // }
+    this.setState({
+      [name]: value
+    })
+  };
 
-        this.setState(prevState => {
-            return {
-                users: [
-                    prevState.form,
-                    ...prevState.users
-                ],
-                form: {
-                    name: '',
-                    email: '',
-                    phone: '',
-                    website: ''
-                }
-            };
-        });
-    }
-    
-    render() {
-        if (this.state.isLoading) {
-            return <h1>Loading...</h1>
-        }
-
-        return (
-            <div>
-                <UserForm
-                    handleChange={this.handleChange}
-                    handleSubmit={this.handleSubmit}
-                    form={this.state.form}
-                />
-                <UserList users={this.state.users} />
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="App">
+        <Table items={ this.state.items }/>
+        <Form handleFormSubmit={ this.handleFormSubmit } 
+          handleInputChange={ this.handleInputChange }
+          newTitle={ this.state.title }
+          newContent={ this.state.content } />
+      </div>
+    );
+  }
 }
 
 export default Home;

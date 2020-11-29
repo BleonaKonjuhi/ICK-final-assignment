@@ -1,8 +1,8 @@
 import React from 'react';
 import Footer from './components/Footer';
-import Form from './components/Form';
-import Header from './components/Header';
 import Home from './components/Home';
+import Header from './components/Header';
+
 import Table from './components/Table';
 class App extends React.Component{
 
@@ -11,7 +11,7 @@ class App extends React.Component{
             <div>
                <Header />
                 
-                <Form />
+                <Home />
                 
                <Footer />
             </div>

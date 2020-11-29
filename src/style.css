@@ -135,24 +135,63 @@ form {
   font-family: arial, sans-serif;
 }
 
-#students {
+#table {
   text-align: center;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   border: 3px solid #ddd;
   width: 50%;
+  margin-top: 200px;
+  margin-left: 30px;
 }
 
-#students td, #students th {
+#table td, #table th {
   border: 1px solid #ddd;
   padding: 8px;
 }
+.form{
+  margin-top: -10px;
+  margin-left: 1000px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+.inputTitle{
+  padding: 20px;
+}
+.inputTitle input{
+  
+  margin-left: 10px;
+  border: 2px solid #4CAF50;
+}
+.textareaContet{
+  padding: 20px;
+}
+.textareaContet textarea{
+  margin-left: -20px;
+  border: 2px solid #4CAF50;
+}
+button {
+  padding: 7px 40px 7px 40px;
+  border: solid #4CAF50;
+  background-color: #4CAF50 ;
+  color: white;
+  border-radius: 10px;
+  margin-left: 120px;
+}
+button:hover{
+  background-color: white;
+  color: #4CAF50;
+}
 
-#students tr:nth-child(even){background-color: #f2f2f2;}
+label {
+ margin-right: 30px;
+ font-size: 20px;
+}
 
-#students tr:hover {background-color: #ddd;}
+#table tr:nth-child(even){background-color: #f2f2f2;}
 
-#students th {
+#table tr:hover {background-color: #ddd;}
+
+#table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
