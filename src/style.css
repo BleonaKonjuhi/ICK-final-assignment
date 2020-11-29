@@ -119,8 +119,20 @@ form {
   margin-bottom: 50px;
 }
 #title {
-  text-align: center;
-  font-family: arial, sans-serif;
+ 
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  color: #285FBA;
+
+}
+#content {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  color: #285FBA;
+
+}
+#Headtitle{
+  margin-left: 200px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  color: #285FBA;
 }
 
 #table {
@@ -131,6 +143,7 @@ form {
   width: 50%;
   margin-top: 200px;
   margin-left: 30px;
+  margin-bottom: -400px;
 }
 
 #table td, #table th {
@@ -138,7 +151,7 @@ form {
   padding: 8px;
 }
 .form{
-  margin-top: -10px;
+  margin-top: 180px;
   margin-left: 1000px;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }

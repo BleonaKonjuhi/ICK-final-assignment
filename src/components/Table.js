@@ -48,7 +48,7 @@ class Table extends React.Component {
     const items = this.props.items;
     return (
       <div >
-          <h1 id='title'>User Table</h1>
+          <h1 id='Headtitle' style={{marginBottom: "-80px", marginTop: "100px"}}>User Table</h1>
         <table id='table'>
           <tbody>
             <tr>
