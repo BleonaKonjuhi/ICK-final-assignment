@@ -5,7 +5,7 @@ class Table extends React.Component {
         super(props);
         let today = new Date(),
 
-        date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate() + '  ' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+        date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         
         this.state ={
             items: [
@@ -20,8 +20,16 @@ class Table extends React.Component {
             this.handleDeleteRow=this.handleDeleteRow.bind(this);
 
     }
-   
+    handleDeleteRow(i) {
+        let items = this.state.items;
+        items.splice(i, 1)
+        this.setState({ 
+          items: items
+        });
+      }
+      
     renderTableData() {
+      let context = this;
         return this.state.items.map((items, index) => {
            const { title, content } = items //destructuring
            return (
@@ -30,22 +38,17 @@ class Table extends React.Component {
                  <td>{title}</td>
                  <td>{content}</td>
                  <td>{this.state.currentDate}</td>
-                 <td><button className="edButton" onClick={index => this.handleDeleteRow(index)}>Delete</button></td>
+                 <td><button className="edButton" onClick={context.handleDeleteRow.bind(context,index)}>Delete</button></td>
                   <td><button className="edButton">Edit</button></td>
               </tr>
            )
         })
      }
-     handleDeleteRow(i) {
-        let items = [...this.state.items]
-        items.splice(i, 1)
-        this.setState({ 
-          items: items
-        })
-      }
+     
    
   render() {
     const items = this.props.items;
+    const { title, content } = items 
     return (
       <div >
           <h1 id='Headtitle' style={{marginBottom: "-80px", marginTop: "100px"}}>User Table</h1>
@@ -62,13 +65,14 @@ class Table extends React.Component {
             </tr>
                 {this.renderTableData()}
             {
+                
             items.map((items, index) => {
               return (
                 <tr key={index}>
                   <td>{items.title}</td>
                   <td>{items.content}</td>
                   <td>{this.state.currentDate}</td>
-                  <td><button className="edButton" onClick={index => this.handleDeleteRow(index)}>Delete</button></td>
+                  <td><button className="edButton" onClick={index => this.handleDeleteRow(items.index)}>Delete</button></td>
                   <td><button className="edButton">Edit</button></td>
                   
                 </tr>

@@ -16,6 +16,13 @@ class Home extends Component {
 
     }
   }; 
+  handleDeleteRow(i) {
+        let items = [...this.state.items]
+        items.splice(i, 1)
+        this.setState({ 
+          items: items
+        })
+      }
 
   handleFormSubmit = (e) => {
     e.preventDefault();
@@ -23,6 +30,7 @@ class Home extends Component {
             alert('Field should not be empty or has less than 2 characters.')
             return;
         }
+       
         if (!this.state.content || this.state.content.length < 10) {
           alert('Field should not be empty or has less than 10 characters.')
           return;

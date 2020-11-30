@@ -177,6 +177,8 @@ form {
   color: white;
   border-radius: 10px;
   margin-left: 120px;
+  outline: none;
+  
 }
 #addItem:hover{
   background-color: white;
@@ -184,12 +186,14 @@ form {
   
 }
 
+
 .edButton {
   padding: 5px 15px 5px 15px;
   border: solid #285FBA;
   background-color: #285FBA ;
   color: white;
   border-radius: 10px;
+  outline: none;
   
 }
 .edButton:hover{

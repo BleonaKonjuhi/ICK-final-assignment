@@ -10,15 +10,18 @@ class Form extends React.Component {
           Title:</label>
           <input id="title" value={this.props.newTitle} 
             type="text" name="title"
-            onChange={this.props.handleInputChange} />
+            onChange={this.props.handleInputChange}
+            placeholder="Enter the title" />
           
           </div>
           <div className="textareaContet">
-          <label htmlFor="content">
+          <label  htmlFor="content">
           Content:</label>
           <textarea id="content" value={this.props.newContent} 
              name="content"
-            onChange={this.props.handleInputChange} />
+            onChange={this.props.handleInputChange}
+            placeholder="Add some contents"
+            rows="3" cols="21" />
           
           </div>
           <div>
