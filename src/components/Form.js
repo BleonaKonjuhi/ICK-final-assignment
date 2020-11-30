@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Form extends React.Component {
   render() {
     return (
-    
+      <div>
         <form className="form" onSubmit={this.props.handleFormSubmit}>
             <div className="inputTitle">
           <label htmlFor="title">
@@ -28,6 +28,7 @@ class Form extends React.Component {
           <button id="addItem" type="submit" value="Submit">Add Item</button>
           </div>
         </form>
+        </div>
       
     );
   }

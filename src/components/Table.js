@@ -5,9 +5,11 @@ class Table extends React.Component {
         super(props);
         let today = new Date(),
 
+
         date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         
         this.state ={
+          message:"",
             items: [
                 { title: "JavaScript", content: 'JavaScript is a language for websites' },
                 { title: "Python", content: 'Python is an awesome language' },
@@ -27,6 +29,21 @@ class Table extends React.Component {
           items: items
         });
       }
+      updateMessage(event){
+        this.setState({
+          message:event.target.value
+        });
+      }
+      handleClick(){
+        let items = this.state.items;
+        items.push(this.state.message);
+        this.setState({
+          items: items,
+          message: ""
+        });
+       
+      }
+      
       
     renderTableData() {
       let context = this;
@@ -39,7 +56,7 @@ class Table extends React.Component {
                  <td>{content}</td>
                  <td>{this.state.currentDate}</td>
                  <td><button className="edButton" onClick={context.handleDeleteRow.bind(context,index)}>Delete</button></td>
-                  <td><button className="edButton">Edit</button></td>
+                  <td><button className="edButton" onClick={this.handleClick.bind(this)}>Edit</button></td>
               </tr>
            )
         })
@@ -48,7 +65,7 @@ class Table extends React.Component {
    
   render() {
     const items = this.props.items;
-    const { title, content } = items 
+    let context = this; 
     return (
       <div >
           <h1 id='Headtitle' style={{marginBottom: "-80px", marginTop: "100px"}}>User Table</h1>
@@ -72,8 +89,8 @@ class Table extends React.Component {
                   <td>{items.title}</td>
                   <td>{items.content}</td>
                   <td>{this.state.currentDate}</td>
-                  <td><button className="edButton" onClick={index => this.handleDeleteRow(items.index)}>Delete</button></td>
-                  <td><button className="edButton">Edit</button></td>
+                  <td><button className="edButton" onClick={context.handleDeleteRow.bind(context,index)}>Delete</button></td>
+                  <td><button className="edButton" onClick={this.handleClick.bind(this)}>Edit</button></td>
                   
                 </tr>
               );

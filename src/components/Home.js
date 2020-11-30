@@ -70,6 +70,7 @@ class Home extends Component {
         <Table items={ this.state.items }/>
         <Form handleFormSubmit={ this.handleFormSubmit } 
           handleInputChange={ this.handleInputChange }
+          handleDeleteRow={this.handleDeleteRow}
           newTitle={ this.state.title }
           newContent={ this.state.content }
            />
