@@ -12,18 +12,31 @@ class Home extends Component {
       title: '',
       content: '',
       items: [],
+      disabledUpvote: false,
+      disabledDownvote: false
      
 
     }
+    this.handleUpvoteClicked = this.handleUpvoteClicked.bind(this);
+    this.handleDownvoteClicked = this.handleDownvoteClicked.bind(this);
   }; 
-  handleDeleteRow(i) {
-        let items = [...this.state.items]
-        items.splice(i, 1)
-        this.setState({ 
-          items: items
-        })
-      }
-
+  handleUpvoteClicked() {
+    if (!this.state.disabledUpvote) {
+      this.setState({
+        disabledUpvote: true,
+        disabledDownvote: false
+      });
+    }
+  }
+  
+  handleDownvoteClicked() {
+    if (!this.state.disabledDownvote) {
+      this.setState({
+        disabledUpvote: false,
+        disabledDownvote: true
+      });
+    }
+  }
   handleFormSubmit = (e) => {
     e.preventDefault();
      if (!this.state.title || this.state.title.length < 2) {
@@ -74,6 +87,16 @@ class Home extends Component {
           newTitle={ this.state.title }
           newContent={ this.state.content }
            />
+           <div>
+             <button className="up"  label="Upvote" 
+                primary={true} 
+                disabled={this.state.disabledUpvote}
+                onClick={this.handleUpvoteClicked} >Like</button>
+                <button className="down" label="Downvote" 
+                secondary={true}
+                disabled={this.state.disabledDownvote}
+                onClick={this.handleDownvoteClicked}>DissLike</button>
+           </div>
       </div>
     );
   }
